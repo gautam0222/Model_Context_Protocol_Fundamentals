@@ -1,20 +1,19 @@
 from langchain_mcp_adapters.client import MultiServerMCPClient
 import asyncio
 import os
+import sys
 
-mcp_server_scripts= os.path.join((os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Basics", "first_mcpserver.py")
-venv_path = os.path.join((os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), ".venv", "Scripts", "python.exe")
-print(mcp_server_scripts)
-print(venv_path) 
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+mcp_server_script = os.path.join(project_root, "basics", "stdio_server.py")
 
 async def main():
 
     server_config = {
         "data_fetch_mcp_stdio": {
             "transport": "stdio",
-            "command": venv_path,
-            "args": [mcp_server_scripts],
-            "env": {}
+            "command": sys.executable,
+            "args": [mcp_server_script],
+            "env": os.environ.copy(),
         },
 
         "data_fetch_mcp_http": {

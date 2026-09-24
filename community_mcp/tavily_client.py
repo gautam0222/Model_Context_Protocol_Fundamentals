@@ -10,7 +10,7 @@ async def main():
     tavily_api_key = os.getenv("TAVILY_API_KEY")
 
     server_config: dict[str, Any] = {
-        "data_fetch_mcp_stdio": {
+        "tavily_mcp": {
             "transport": "streamable-http",
             "url": f"https://mcp.tavily.com/mcp/?tavilyApiKey={tavily_api_key}"
         }

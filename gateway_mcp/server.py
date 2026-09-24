@@ -1,20 +1,20 @@
 from fastmcp import FastMCP
 
-mcp=FastMCP()
+mcp = FastMCP("Learning Gateway")
 
 @mcp.tool()
-def fetch_http():
+def get_gateway_status():
     """
     Fetches the data from the MCP server and returns it as a dictionary.
     """
     return {"status": "success"}
 
 @mcp.tool()
-def process_http(path:str):
+def process_gateway_path(path: str):
     """
     Processes the data fetched from the MCP server and returns the processed data.
     """
-    return {"status": "processed_data has been processed successfully at " + path}
+    return {"status": f"Processed data at {path}"}
 
 #mount the tools to the mcp server
 mcp.mount(
@@ -33,9 +33,9 @@ mcp.mount(
 mcp.mount(
     FastMCP.as_proxy({
         "mcpServers":{
-            "agentic_terminal_mcp": {
-                "command": "uvx",
-                "args": ["agentic_terminal"],
+            "learning_mcp": {
+                "command": "learning-mcp",
+                "args": [],
                 "env": {}
         }
         }

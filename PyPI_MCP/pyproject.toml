@@ -1,12 +1,16 @@
 [project]
-name = "agentic_terminal"
+name = "learning-mcp"
 version = "0.1.0"
-description = "An agentic terminal for interacting with MCP Learning"
-readme = "README.md"
+description = "A small, safe filesystem MCP server for learning"
 requires-python = ">=3.12,<3.14"
 
 dependencies = [
     "fastmcp>=2.14,<3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
 ]
 
 [build-system]
@@ -17,4 +21,4 @@ build-backend = "setuptools.build_meta"
 where = ["src"]
 
 [project.scripts]
-mcp = "agentic_terminal.main:main"
+learning-mcp = "learning_mcp.main:main"

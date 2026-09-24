@@ -1,12 +1,11 @@
 from langchain_mcp_adapters.client import MultiServerMCPClient
 import asyncio
-import os 
 
 async def main():
 
     client = MultiServerMCPClient(
     {
-        "data_fetch_mcp_stdio": {
+        "duckduckgo_mcp": {
             "transport": "stdio",
             "command": "uvx",
             "args": ["duckduckgo-mcp-server"],
