@@ -181,14 +181,3 @@ The pypi_mcp tests cover:
 - registration of resources, resource templates, and prompts.
 
 The suite contains five tests and does not require a live server or external API, which keeps it fast and deterministic.
-
-## Learning path
-
-1. Read basics/stdio_server.py with basics/stdio_client.py.
-2. Compare the direct client with the LangChain client.
-3. Study http_mcp to see the same concept over a network transport.
-4. Explore community_mcp to consume external servers.
-5. Read pypi_mcp in this order: tools.py, resources.py, prompts.py, main.py, then tests.
-6. Study the gateway and Docker configuration last, as they introduce composition and deployment concerns.
-
-The next useful exercise is a small read-only external API server, such as books or weather data. Add timeouts, structured results, environment-based configuration, and tests while keeping the server's scope intentionally narrow.
